@@ -10,7 +10,7 @@ import Foundation
 func restroomsMiddleware() -> Middleware<AppState> {
     return { state, action, dispatch in
         switch action {
-        case let action as fetchRestroomsAction:
+        case let action as FetchRestroomsAction:
             getRestroomsByLocation(action: action, dispatch: dispatch)
         default:
             break
@@ -18,7 +18,7 @@ func restroomsMiddleware() -> Middleware<AppState> {
     }
 }
 
-private func getRestroomsByLocation(action: fetchRestroomsAction, dispatch: @escaping Dispatcher) {
+private func getRestroomsByLocation(action: FetchRestroomsAction, dispatch: @escaping Dispatcher) {
     WebService().getRestroomsByLocation(lat: action.latitude, lng: action.longitude) { result in
         switch result {
         case .success(let restrooms):

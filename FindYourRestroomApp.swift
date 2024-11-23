@@ -14,7 +14,7 @@ struct FindYourRestroomApp: App {
     }
     
     var body: some Scene {
-        let store = Store(state: AppState(), reducer: appReducer)
+        let store = Store(state: AppState(), reducer: appReducer, middlewares: [restroomsMiddleware()])
         WindowGroup {
             HomeScreen().environmentObject(store)
         }

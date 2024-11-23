@@ -11,7 +11,7 @@ protocol Action {
     
 }
 
-struct fetchRestroomsAction: Action {
+struct FetchRestroomsAction: Action {
     let latitude: Double
     let longitude: Double
 }
